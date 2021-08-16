@@ -9,7 +9,12 @@ export class AuthService {
 
   clientPrinciple$: Observable<any>;
 
-  constructor(private httpClient: HttpClient ) { 
+  constructor(private httpClient: HttpClient ) {
     this.clientPrinciple$ = this.httpClient.get('/.auth/me');
+  }
+
+  getHelloMessage(name: string){
+    return this.httpClient.get(
+      `/api/HelloWorld?name=${name}`);
   }
 }
